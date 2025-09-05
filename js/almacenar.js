@@ -2,23 +2,23 @@
 let lista = JSON.parse(localStorage.getItem("listado")) || [];
 
 
-//  Referencias a elementos del DOM
+//  Referencias del DOM//
 const inputItem = document.getElementById("item");
 const btnAgregar = document.getElementById("agregar");
 const btnLimpiar = document.getElementById("limpiar");
 const contenedor = document.getElementById("contenedor");
 
 
-//  Función  la lista en pantalla
+//  Función  la lista en pantalla //
 function renderizarLista() {
-  contenedor.innerHTML = ""; // Limpiar contenido previo
+  contenedor.innerHTML = ""; // Limpiar contenido previo//
   lista.forEach((item, index) => {
     const li = document.createElement("li");
     li.className = "list-group-item d-flex justify-content-between align-items-center";
     li.textContent = item;
 
 
-    // Botón para eliminar ítem 
+    // Botón para eliminar ítem //
     const btnEliminar = document.createElement("button");
     btnEliminar.className = "btn btn-sm btn-danger";
     btnEliminar.textContent = "✖";
@@ -40,24 +40,24 @@ function actualizarStorageYVista() {
 }
 
 
-//  Evento para agregar ítem
+//  Evento para agregar ítem //
 btnAgregar.addEventListener("click", () => {
   const nuevoItem = inputItem.value.trim();
   if (nuevoItem !== "") {
     lista.push(nuevoItem);
     actualizarStorageYVista();
-    inputItem.value = ""; // Limpiar campo
-    inputItem.focus();    // Mejor UX
+    inputItem.value = ""; // Limpiar campo //
+    inputItem.focus();    // Mejor UX //
   }
 });
 
-//  Evento para limpiar listado
+//  Evento para limpiar listado //
 btnLimpiar.addEventListener("click", () => {
   localStorage.removeItem("listado");
   lista = [];
   renderizarLista();
 });
 
-//  Renderizar al cargar la página
+//  Renderizar al cargar la página //
 renderizarLista();
 
