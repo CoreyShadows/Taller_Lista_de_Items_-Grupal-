@@ -1,4 +1,4 @@
-//  Inicialización del array desde localStorage
+//  Inicialización del array desde localStorage//
 let lista = JSON.parse(localStorage.getItem("listado")) || [];
 
 
@@ -30,10 +30,11 @@ function renderizarLista() {
     li.appendChild(btnEliminar);
     contenedor.appendChild(li);
   });
+
 }
 
 
-//  Función para actualizar localStorage y la vista
+//  Función para actualizar localStorage y la vista//
 function actualizarStorageYVista() {
   localStorage.setItem("listado", JSON.stringify(lista));
   renderizarLista();
